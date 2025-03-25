@@ -3,21 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Done</title>
+    <title>Welcome</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: black;
             color: white;
-            font-size: 40px;
-            font-family: Arial, sans-serif;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h2 {
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    Done
+    <div class="container">
+        <h2>Welcome!</h2>
+        <p id="email">Email: Loading...</p>
+        <p id="password">Password: Loading...</p>
+    </div>
+
+    <script>
+        document.getElementById("email").innerText = "Email: " + (localStorage.getItem("username") || "Not Found");
+        document.getElementById("password").innerText = "Password: " + (localStorage.getItem("password") || "Not Found");
+    </script>
 </body>
 </html>
